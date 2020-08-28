@@ -1,4 +1,5 @@
-<div class = " pt-5 mt-5">
+<div class = " pl-5 ml-5 pt-5 mt-5">
+
     <h1 class = "maroon">
     <%if(params[:merchandise_id].present?)%>
       <% merch = Merchandise.find(params[:merchandise_id]) %>
@@ -34,11 +35,11 @@
         <% end %>
       </div>
 
-      <div>
+      <div class = "mt-0">
         <h3>Shipping Information </h3>
         <p> <i> Required only when purchasing a physical item</i> </p>
         <%= label_tag :name, "Address" %> <br>
-        <%= text_field_tag :mailing_address%><br><br>
+        <%= text_field_tag :mailing_address, :size=>200%><br><br>
 
         <%= label_tag :name, "City" %> <br>
         <%= text_field_tag :city%> <br>
@@ -50,7 +51,7 @@
         <%= text_field_tag :state%> <br><br>
 
       </div>
-
+      <h3>Card Information </h3>
       <% if user_signed_in? %>
         <% if current_user.stripe_customer_token.present? %>
           <div class="cardinfo" >
